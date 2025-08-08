@@ -1,3 +1,5 @@
 <script setup lang="ts"></script>
-<template>tbd</template>
+<template>
+  <footer>tbd</footer>
+</template>
 <style scoped></style>

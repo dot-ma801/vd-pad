@@ -15,13 +15,11 @@ const { highlightedParts } = useTextHighlighter(contentText, highlightWordsWithC
 </script>
 
 <template>
-  <div>
-    <WordColorForm @add="addWordColor" />
-    <div class="container">
-      <textarea v-model="contentText" rows="6"></textarea>
-      <div class="highlight-text-area">
-        <HighlightedText :parts="highlightedParts" />
-      </div>
+  <WordColorForm @add="addWordColor" />
+  <div class="container">
+    <textarea v-model="contentText" rows="6"></textarea>
+    <div class="highlight-text-area">
+      <HighlightedText :parts="highlightedParts" />
     </div>
   </div>
 </template>
@@ -39,7 +37,6 @@ textarea {
 .highlight-text-area {
   border: 1px solid #ccc;
   padding: 1rem;
-  margin-top: 1rem;
   background: #fdfdfd;
 
   flex: 5;
