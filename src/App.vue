@@ -18,7 +18,7 @@ import AppFooter from '@/components/Footer.vue'
   min-height: 100%;
 
   /* 色 */
-  background-color: #222;
+  /* background-color: #222; */
 
   /* 配置 */
   display: flex;
