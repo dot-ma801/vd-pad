@@ -1,45 +1,43 @@
-# ./
+# vd-pad 📝
 
-This template should help get you started developing with Vue 3 in Vite.
+`vd-pad`は、リアルタイムでテキスト内のキーワードをハイライト表示できるWebアプリケーションです。
 
-## Recommended IDE Setup
+## ✨ 主な機能
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+- **✍️ テキスト入力:** 大きなテキストブロックもスムーズに入力・編集可能。
+- **🎨 柔軟なハイライト設定:** ハイライトしたい単語と色を自由に、そして複数設定できます。
+- **🚀 リアルタイムプレビュー:** 設定したキーワードは、入力テキストに即座に反映されます。
 
-## Type Support for `.vue` Imports in TS
+## 🛠️ 技術スタック
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+- **Frontend:** [Vue.js 3](https://vuejs.org/), [Vite](https://vitejs.dev/), [Pinia](https://pinia.vuejs.org/), [Vue Router](https://router.vuejs.org/)
+- **Language:** [TypeScript](https://www.typescriptlang.org/)
+- **Styling:** CSS (Scoped)
+- **Testing:** [Vitest](https://vitest.dev/)
 
-## Customize configuration
+## 🚀 クイックスタート
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+### 前提条件
 
-## Project Setup
+- [Node.js](https://nodejs.org/en/) (v20.x or v22.x)
 
-```sh
-npm install
-```
+### インストールと実行
 
-### Compile and Hot-Reload for Development
+1.  **リポジトリをクローン:**
+    ```bash
+    git clone https://github.com/your-username/vd-pad.git
+    ```
+2.  **ディレクトリに移動:**
+    ```bash
+    cd vd-pad
+    ```
+3.  **依存関係をインストール:**
+    ```bash
+    npm install
+    ```
+4.  **開発サーバーを起動:**
+    ```bash
+    npm run dev
+    ```
 
-```sh
-npm run dev
-```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Run Unit Tests with [Vitest](https://vitest.dev/)
-
-```sh
-npm run test:unit
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+サーバーが起動したら、 `http://localhost:5173` にアクセスしてください。
