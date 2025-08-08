@@ -17,6 +17,7 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "lucide-vue-next": "^0.539.0",
     "pinia": "^3.0.3",
     "the-new-css-reset": "^1.11.3",
     "vue": "^3.5.18",
