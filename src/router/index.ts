@@ -5,7 +5,7 @@ const router = createRouter({
   routes: [
     {
       path: '',
-      component: () => import('@/views/TextHighlighter.vue'),
+      component: () => import('@/views/TextHighlighterView.vue'),
     },
   ],
 })
