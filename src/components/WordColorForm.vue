@@ -17,9 +17,16 @@ const submit = () => {
 </script>
 
 <template>
-  <form @submit.prevent="submit" style="margin-bottom: 1rem">
-    <input v-model="newName" placeholder="名前（例：太郎）" />
+  <form class="form-container" @submit.prevent="submit">
+    <input v-model="newName"/>
     <input v-model="newColor" type="color" />
     <button>追加</button>
   </form>
 </template>
+
+<style scoped>
+.form-container {
+  display: flex;
+  gap: 8px;
+}
+</style>
