@@ -1,11 +1,31 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import AppHeader from '@/components/Header.vue'
+import AppFooter from '@/components/Footer.vue'
+</script>
 
 <template>
-  <h1>You did it!</h1>
-  <p>
-    Visit <a href="https://vuejs.org/" target="_blank" rel="noopener">vuejs.org</a> to read the
-    documentation
-  </p>
+  <div class="app-container">
+    <AppHeader />
+    <router-view />
+    <AppFooter />
+  </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.app-container {
+  /* 高さと幅 */
+  width: 100%;
+  min-height: 100%;
+
+  /* 色 */
+  background-color: #222;
+
+  /* 配置 */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  /* 間隔 */
+  padding: 1rem;
+}
+</style>
