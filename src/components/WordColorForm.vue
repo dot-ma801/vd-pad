@@ -7,7 +7,6 @@ const newColor = ref('#000000')
 const emit = defineEmits(['add'])
 
 const submit = () => {
-  console.log('aaaa')
   const name = newName.value.trim()
   if (name) {
     emit('add', { word: name, color: newColor.value })
