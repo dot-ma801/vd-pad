@@ -23,7 +23,6 @@ import AppFooter from '@/components/Footer.vue'
   /* 配置 */
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 
   /* 間隔 */
   padding: 1rem;
