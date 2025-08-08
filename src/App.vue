@@ -5,9 +5,11 @@ import AppFooter from '@/components/Footer.vue'
 
 <template>
   <div class="app-container">
-    <AppHeader />
-    <router-view />
-    <AppFooter />
+    <AppHeader class="header" />
+    <div class="content">
+      <router-view />
+    </div>
+    <AppFooter class="footer" />
   </div>
 </template>
 
@@ -23,8 +25,20 @@ import AppFooter from '@/components/Footer.vue'
   /* 配置 */
   display: flex;
   flex-direction: column;
+}
 
-  /* 間隔 */
-  padding: 1rem;
+.header {
+  width: 100%;
+  top: 0;
+}
+
+.content {
+  margin: 0 1rem;
+}
+
+.footer {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
 }
 </style>
