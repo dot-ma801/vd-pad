@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import HighlightedText from '@/components/HighlightedText.vue'
-import WordColorForm from '@/components/WordColorForm.vue'
+import ActionArea from '@/components/ActionArea.vue'
 import { useTextHighlighter } from '@/composables/useTextHighlighter'
 import { ref } from 'vue'
 
@@ -11,11 +11,19 @@ const addWordColor = ({ word, color }: { word: string; color: string }) => {
   highlightWordsWithColor.value[word] = color
 }
 
+const deleteWordColor = (word: string) => {
+  delete highlightWordsWithColor.value[word]
+}
+
 const { highlightedParts } = useTextHighlighter(contentText, highlightWordsWithColor)
 </script>
 
 <template>
-  <WordColorForm @add="addWordColor" />
+  <ActionArea
+    :keywords="highlightWordsWithColor"
+    @add="addWordColor"
+    @delete="deleteWordColor"
+  />
   <div class="container">
     <textarea v-model="contentText" rows="6"></textarea>
     <div class="highlight-text-area">
@@ -28,6 +36,11 @@ const { highlightedParts } = useTextHighlighter(contentText, highlightWordsWithC
 .container {
   display: flex;
   gap: 16px;
+}
+
+.action-area {
+  display: flex;
+  align-items: center;
 }
 
 textarea {
