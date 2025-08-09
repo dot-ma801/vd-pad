@@ -20,21 +20,25 @@ const { highlightedParts } = useTextHighlighter(contentText, highlightWordsWithC
 </script>
 
 <template>
-  <ActionArea
-    :keywords="highlightWordsWithColor"
-    @add="addWordColor"
-    @delete="deleteWordColor"
-  />
   <div class="container">
-    <textarea v-model="contentText" rows="6"></textarea>
-    <div class="highlight-text-area">
-      <HighlightedText :parts="highlightedParts" />
+    <ActionArea :keywords="highlightWordsWithColor" @add="addWordColor" @delete="deleteWordColor" />
+    <div class="text-container">
+      <textarea v-model="contentText" rows="6" placeholder="原文を入力…"></textarea>
+      <div class="highlight-text-area">
+        <HighlightedText :parts="highlightedParts" />
+      </div>
     </div>
   </div>
 </template>
 
 <style scoped>
 .container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.text-container {
   display: flex;
   gap: 16px;
 }
@@ -46,13 +50,18 @@ const { highlightedParts } = useTextHighlighter(contentText, highlightWordsWithC
 
 textarea {
   flex: 1;
+  background-color: var(--color-surface-alt);
+  color: var(--color-text);
+  padding: var(--spacing-base);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
 }
 
 .highlight-text-area {
-  border: 1px solid #ccc;
-  padding: 1rem;
-  background: #fdfdfd;
-
+  border: 1px solid var(--color-border);
+  background-color: var(--color-surface);
+  padding: var(--spacing-base);
   flex: 5;
+  border-radius: 4px;
 }
 </style>

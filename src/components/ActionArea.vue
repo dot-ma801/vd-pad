@@ -31,7 +31,11 @@ const onDelete = (word: string) => {
 <style scoped>
 .action-area {
   display: flex;
-  gap: 16px;
+  gap: var(--spacing-base);
+  background-color: var(--color-surface);
+  padding: var(--spacing-base);
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
 }
 
 .form-area {

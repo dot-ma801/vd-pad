@@ -2,4 +2,11 @@
 <template>
   <footer>tbd</footer>
 </template>
-<style scoped></style>
+<style scoped>
+footer {
+  background-color: var(--color-secondary);
+  color: #fff;
+  text-align: center;
+  padding: var(--spacing-base);
+}
+</style>

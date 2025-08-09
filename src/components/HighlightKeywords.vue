@@ -34,21 +34,22 @@ const deleteKeyword = (word: string) => {
 
 <style scoped>
 .keywords-container {
-  border: 1px solid #ccc;
-  padding: 1rem;
-  background: #fdfdfd;
-  min-height: 50px;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-surface-alt);
+  padding: var(--spacing-base);
   border-radius: 4px;
-  margin-top: 16px;
+  min-height: 50px;
+  margin-top: var(--spacing-base);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .keywords-list {
   list-style: none;
-  padding: 0;
-  margin: 0;
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+  margin: 0;
+  padding: 0;
 }
 
 .keyword-item {
@@ -57,16 +58,14 @@ const deleteKeyword = (word: string) => {
   gap: 8px;
   padding: 4px 12px;
   border-radius: 16px;
-  background-color: #f0f0f0;
-  border: 1px solid #ddd;
+  background-color: var(--color-secondary);
+  border: none;
+  color: #fff;
   font-size: 0.9rem;
 }
 
 .keyword-color-chip {
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  display: none;
 }
 
 .keyword-text {
@@ -75,24 +74,23 @@ const deleteKeyword = (word: string) => {
 
 .delete-button {
   background: none;
-  border: none;
+  border-radius: 50%;
   cursor: pointer;
-  padding: 0;
+  padding: 4px;
   margin-left: 4px;
+  color: #fff;
   display: flex;
   align-items: center;
-  color: #888;
-  border-radius: 50%;
 }
 
 .delete-button:hover {
-  color: #d9534f;
+  color: #ffdede;
 }
 
 .no-keywords {
   color: #888;
   text-align: center;
   margin: 0;
-  padding-top: 4px;
+  padding: var(--spacing-base);
 }
 </style>
