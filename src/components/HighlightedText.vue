@@ -1,7 +1,10 @@
 <script setup lang="ts">
+import type { HighlightedPart } from '@/types/wordTypes'
+import type { PropType } from 'vue'
+
 defineProps({
   parts: {
-    type: Array,
+    type: Array as PropType<HighlightedPart[]>,
     required: true,
   },
 })

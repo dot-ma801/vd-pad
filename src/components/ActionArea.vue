@@ -1,17 +1,18 @@
 <script setup lang="ts">
 import WordColorForm from '@/components/WordColorForm.vue'
 import HighlightKeywords from '@/components/HighlightKeywords.vue'
+import type { KeywordMap, KeyWordWithColor } from '@/types/wordTypes'
 
 defineProps<{
-  keywords: Record<string, string>
+  keywords: KeywordMap
 }>()
 
 const emit = defineEmits<{
-  (e: 'add', payload: { word: string; color: string }): void
+  (e: 'add', payload: KeyWordWithColor): void
   (e: 'delete', word: string): void
 }>()
 
-const onAdd = (payload: { word: string; color: string }) => {
+const onAdd = (payload: KeyWordWithColor) => {
   emit('add', payload)
 }
 

@@ -1,10 +1,13 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import type { KeyWordWithColor } from '@/types/wordTypes'
 
 const newName = ref('')
 const newColor = ref('#000000')
 
-const emit = defineEmits(['add'])
+const emit = defineEmits<{
+  (e: 'add', payload: KeyWordWithColor): void
+}>()
 
 const submit = () => {
   const name = newName.value.trim()

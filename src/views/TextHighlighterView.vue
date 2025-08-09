@@ -3,12 +3,13 @@ import HighlightedText from '@/components/HighlightedText.vue'
 import ActionArea from '@/components/ActionArea.vue'
 import { useTextHighlighter } from '@/composables/useTextHighlighter'
 import { ref } from 'vue'
+import type { KeywordMap, KeyWordWithColor } from '@/types/wordTypes'
 
 const contentText = ref<string>('')
-const highlightWordsWithColor = ref<Record<string, string>>({})
+const highlightWordsWithColor = ref<KeywordMap>({})
 
-const addWordColor = ({ word, color }: { word: string; color: string }) => {
-  highlightWordsWithColor.value[word] = color
+const addWordColor = (payload: KeyWordWithColor) => {
+  highlightWordsWithColor.value[payload.word] = payload.color
 }
 
 const deleteWordColor = (word: string) => {

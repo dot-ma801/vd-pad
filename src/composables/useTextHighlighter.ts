@@ -1,10 +1,11 @@
 import { computed } from 'vue'
 import type { Ref, ComputedRef } from 'vue'
+import type { HighlightedPart, KeywordMap } from '@/types/wordTypes'
 
 export const useTextHighlighter = (
   textRef: Ref<string>,
-  tokenColorsRef: Ref<Record<string, string>>,
-): { highlightedParts: ComputedRef<Array<{ text: string; color?: string }>> } => {
+  tokenColorsRef: Ref<KeywordMap>,
+): { highlightedParts: ComputedRef<HighlightedPart[]> } => {
   const getHighlightedParts = () => {
     const tokens = Object.keys(tokenColorsRef.value)
     if (tokens.length === 0) {
@@ -16,7 +17,7 @@ export const useTextHighlighter = (
       'g',
     )
 
-    const parts = []
+    const parts: HighlightedPart[] = []
     let lastIndex = 0
     textRef.value.replace(regex, (match, offset) => {
       if (offset > lastIndex) {
