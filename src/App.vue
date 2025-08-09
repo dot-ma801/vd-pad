@@ -34,7 +34,6 @@ import AppFooter from '@/components/Footer.vue'
 }
 
 .footer {
-  position: fixed;
   bottom: 0;
   width: 100%;
   background-color: var(--color-primary);
