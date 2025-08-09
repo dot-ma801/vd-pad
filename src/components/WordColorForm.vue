@@ -2,9 +2,11 @@
 import { ref } from 'vue'
 import type { KeyWordWithColor } from '@/types/wordTypes'
 import { CirclePlus } from 'lucide-vue-next'
+import ColorSelector from '@/components/ColorSelector.vue'
+import { defaultColorList } from '@/config/colors'
 
 const newName = ref('')
-const newColor = ref('#000000')
+const newColor = ref(defaultColorList[0])
 
 const emit = defineEmits<{
   (e: 'add', payload: KeyWordWithColor): void
@@ -15,7 +17,6 @@ const submit = () => {
   if (name) {
     emit('add', { word: name, color: newColor.value })
     newName.value = ''
-    newColor.value = '#000000'
   }
 }
 </script>
@@ -23,7 +24,7 @@ const submit = () => {
 <template>
   <form class="form-container" @submit.prevent="submit">
     <input v-model="newName" type="text" />
-    <input v-model="newColor" type="color" />
+    <ColorSelector v-model="newColor" />
     <button><CirclePlus /></button>
   </form>
 </template>
