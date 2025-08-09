@@ -1,23 +1,22 @@
 :root {
-  --color-bg: #f9f9f9;
+  --color-bg: #F8F8F0;
   --color-text: #333333;
-  --color-primary: #4a90e2;
-  --color-secondary: #e94e77;
+  --color-primary: #005F6B;
+  --color-primary-hover: #004C57;
+  --color-secondary: #0097B9;
   --font-family-base:
     'Fira code', 'Fira Mono', source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
   --font-size-base: 16px;
   --spacing-base: 1rem;
-  --color-surface: #fff;
+  --color-surface: #FCFCF8;
   --color-border: rgba(0, 0, 0, 0.2);
-  --color-surface-alt: #f0f0f0;
+  --color-surface-alt: #EFEFE8;
   --color-disabled-bg: #e0e0e0;
 }
 
 [data-theme='dark'] {
   --color-bg: #1e1e1e;
   --color-text: #f1f1f1;
-  --color-primary: #4a90e2;
-  --color-secondary: #e94e77;
   --color-surface: #2e2e2e;
   --color-border: rgba(255, 255, 255, 0.2);
   --color-surface-alt: #222;

@@ -101,7 +101,7 @@ const onColorChange = (event: Event) => {
 }
 
 .color-marker.is-active {
-  border: var(--selected-marker-border-size) solid var(--color-primary);
+  border: var(--selected-marker-border-size) solid var(--color-secondary);
 }
 
 .custom-color-marker {
