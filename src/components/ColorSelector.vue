@@ -2,6 +2,7 @@
 import { computed, ref } from 'vue'
 import { defaultColorList } from '@/config/colors'
 import { Palette } from 'lucide-vue-next'
+import { useContrastingColor } from '@/composables/useColorUtils'
 
 const props = defineProps<{
   modelValue: string
@@ -19,6 +20,15 @@ const isCustomColorActive = computed(() => {
 
 const customColorValue = computed(() => {
   return isCustomColorActive.value ? props.modelValue : '#ffffff'
+})
+
+const contrastingIconColor = useContrastingColor(customColorValue)
+
+const iconColor = computed(() => {
+  if (!isCustomColorActive.value) {
+    return 'currentColor'
+  }
+  return contrastingIconColor.value
 })
 
 const selectColor = (color: string) => {
@@ -50,13 +60,13 @@ const onColorChange = (event: Event) => {
       :style="{ backgroundColor: customColorValue }"
       @click="openColorPicker"
     >
-      <Palette :size="20" />
+      <Palette :key="iconColor" :size="20" :color="iconColor" />
       <input
         ref="colorInput"
         type="color"
         :value="customColorValue"
         class="color-input"
-        @input="onColorChange"
+        @change="onColorChange"
       />
     </div>
   </div>
