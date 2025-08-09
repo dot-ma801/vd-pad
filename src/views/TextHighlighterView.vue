@@ -59,4 +59,10 @@ textarea {
   flex: 5;
   border-radius: 4px;
 }
+
+@media (max-width: 768px) {
+  .text-container {
+    flex-direction: column;
+  }
+}
 </style>

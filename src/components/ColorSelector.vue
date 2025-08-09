@@ -13,7 +13,7 @@ const emit = defineEmits<{
   (e: 'update:modelValue', color: string): void
 }>()
 
-const themeStore = useThemeStore();
+const themeStore = useThemeStore()
 
 const colorInput = ref<HTMLInputElement | null>(null)
 
@@ -119,5 +119,16 @@ const onColorChange = (event: Event) => {
   height: 100%;
   opacity: 0;
   cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .color-selector-container {
+    gap: 8px;
+    width: calc(
+      var(--marker-size) * 6 + var(--marker-gap-size) * 5 + var(--selected-marker-border-size) * 2
+    );
+    display: flex;
+    flex-direction: row;
+  }
 }
 </style>

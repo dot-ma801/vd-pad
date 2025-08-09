@@ -22,8 +22,10 @@ const submit = () => {
 
 <template>
   <form class="form-container" @submit.prevent="submit">
-    <input v-model="newName" type="text" />
-    <ColorSelector v-model="newColor" />
+    <div class="input-area">
+      <input v-model="newName" type="text" />
+      <ColorSelector v-model="newColor" />
+    </div>
     <button>追加</button>
   </form>
 </template>
@@ -34,6 +36,9 @@ const submit = () => {
   gap: var(--spacing-base);
   align-items: center;
 }
+.input-area {
+  display: contents;
+}
 
 input[type='text'] {
   padding: 0.5rem;
@@ -41,7 +46,7 @@ input[type='text'] {
   color: var(--color-text);
   border: 1px solid var(--color-border);
   border-radius: 4px;
-  font-size: 1rem
+  font-size: 1rem;
 }
 
 button {
@@ -62,5 +67,21 @@ button:hover {
 button:disabled {
   background-color: var(--color-disabled-bg);
   cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  .form-container {
+    justify-content: space-around;
+  }
+  .action-area {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .input-area {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
 }
 </style>

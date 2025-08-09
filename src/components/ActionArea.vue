@@ -46,4 +46,11 @@ const onDelete = (word: string) => {
 .words-area {
   flex: 3;
 }
+
+@media (max-width: 768px) {
+  .action-area {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
 </style>
