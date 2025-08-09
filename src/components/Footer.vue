@@ -45,4 +45,14 @@ footer {
   text-align: center;
   padding: var(--spacing-base);
 }
+
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  .commit-link {
+    margin: 0.5em 0;
+  }
+}
 </style>
