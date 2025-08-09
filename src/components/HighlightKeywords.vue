@@ -58,14 +58,17 @@ const deleteKeyword = (word: string) => {
   gap: 8px;
   padding: 4px 12px;
   border-radius: 16px;
-  background-color: var(--color-secondary);
-  border: none;
-  color: #fff;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
   font-size: 0.9rem;
 }
 
 .keyword-color-chip {
-  display: none;
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
 }
 
 .keyword-text {
@@ -78,13 +81,13 @@ const deleteKeyword = (word: string) => {
   cursor: pointer;
   padding: 4px;
   margin-left: 4px;
-  color: #fff;
+  color: var(--color-text);
   display: flex;
   align-items: center;
 }
 
 .delete-button:hover {
-  color: #ffdede;
+  color: var(--color-secondary);
 }
 
 .no-keywords {
