@@ -1,7 +1,9 @@
 <script setup lang="ts">
+import { computed, ref } from 'vue'
 import { defaultColorList } from '@/config/colors'
+import { Palette } from 'lucide-vue-next'
 
-defineProps<{
+const props = defineProps<{
   modelValue: string
 }>()
 
@@ -9,8 +11,27 @@ const emit = defineEmits<{
   (e: 'update:modelValue', color: string): void
 }>()
 
+const colorInput = ref<HTMLInputElement | null>(null)
+
+const isCustomColorActive = computed(() => {
+  return !defaultColorList.includes(props.modelValue)
+})
+
+const customColorValue = computed(() => {
+  return isCustomColorActive.value ? props.modelValue : '#ffffff'
+})
+
 const selectColor = (color: string) => {
   emit('update:modelValue', color)
+}
+
+const openColorPicker = () => {
+  colorInput.value?.click()
+}
+
+const onColorChange = (event: Event) => {
+  const target = event.target as HTMLInputElement
+  emit('update:modelValue', target.value)
 }
 </script>
 <template>
@@ -23,6 +44,21 @@ const selectColor = (color: string) => {
       :style="{ backgroundColor: color }"
       @click="selectColor(color)"
     ></div>
+    <div
+      class="color-marker custom-color-marker"
+      :class="{ 'is-active': isCustomColorActive }"
+      :style="{ backgroundColor: customColorValue }"
+      @click="openColorPicker"
+    >
+      <Palette :size="20" />
+      <input
+        ref="colorInput"
+        type="color"
+        :value="customColorValue"
+        class="color-input"
+        @input="onColorChange"
+      />
+    </div>
   </div>
 </template>
 
@@ -31,13 +67,14 @@ const selectColor = (color: string) => {
   --marker-size: 30px;
 
   gap: 8px;
-  width: calc((var(--marker-size) + 8px) * 3);
+  width: calc(var(--marker-size) * 3 + 16px);
 
   display: flex;
   flex-wrap: wrap;
 }
 
 .color-marker {
+  position: relative;
   height: var(--marker-size);
   width: var(--marker-size);
 
@@ -45,10 +82,26 @@ const selectColor = (color: string) => {
   border: 1px solid var(--color-border);
 
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .color-marker.is-active {
   border: 3px solid var(--color-primary);
-  border-radius: 50%;
+}
+
+.custom-color-marker {
+  background-color: var(--color-surface-alt);
+}
+
+.color-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
 }
 </style>
