@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import { defaultColorList } from '@/config/colors'
-import { Palette } from 'lucide-vue-next'
+import { Palette, Check } from 'lucide-vue-next'
 import { useContrastingColor } from '@/composables/useColorUtils'
 
 const props = defineProps<{
@@ -53,7 +53,9 @@ const onColorChange = (event: Event) => {
       :class="{ 'is-active': modelValue === color }"
       :style="{ backgroundColor: color }"
       @click="selectColor(color)"
-    ></div>
+    >
+      <Check v-if="modelValue === color" :size="16" color="#FFF" />
+    </div>
     <div
       class="color-marker custom-color-marker"
       :class="{ 'is-active': isCustomColorActive }"
