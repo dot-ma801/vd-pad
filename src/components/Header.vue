@@ -1,29 +1,20 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { watchEffect } from 'vue'
 import { Sun, Moon } from 'lucide-vue-next'
+import { useThemeStore } from '@/stores/theme'
 
-const isDark = ref(false)
+const themeStore = useThemeStore()
 
 const toggleTheme = () => {
-  isDark.value = !isDark.value
-  document.documentElement.setAttribute(
-    'data-theme',
-    isDark.value ? 'dark' : 'light'
-  )
-  localStorage.setItem('theme', isDark.value ? 'dark' : 'light')
+  themeStore.toggleDark()
 }
 
-onMounted(() => {
-  const saved = localStorage.getItem('theme')
-  if (saved) {
-    isDark.value = saved === 'dark'
-  } else {
-    isDark.value = window.matchMedia('(prefers-color-scheme: dark)').matches
-  }
+watchEffect(() => {
   document.documentElement.setAttribute(
     'data-theme',
-    isDark.value ? 'dark' : 'light'
+    themeStore.currentTheme
   )
+  localStorage.setItem('theme', themeStore.currentTheme)
 })
 </script>
 
@@ -31,7 +22,7 @@ onMounted(() => {
   <header>
     <h1>vd-pad</h1>
     <button class="theme-toggle" @click="toggleTheme">
-      <Sun v-if="isDark" :size="20" />
+      <Sun v-if="themeStore.isDark" :size="20" />
       <Moon v-else :size="20" />
     </button>
   </header>
