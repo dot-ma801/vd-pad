@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { Trash2 } from 'lucide-vue-next'
+import KeywordChip from './KeywordChip.vue'
 
 const props = defineProps<{
   keywords: Record<string, string>
@@ -20,13 +20,13 @@ const deleteKeyword = (word: string) => {
 <template>
   <div class="keywords-container">
     <ul v-if="hasKeywords" class="keywords-list">
-      <li v-for="(color, word) in keywords" :key="word" class="keyword-item">
-        <span class="keyword-color-chip" :style="{ backgroundColor: color }"></span>
-        <span class="keyword-text">{{ word }}</span>
-        <button class="delete-button" @click="deleteKeyword(word)" :title="`'${word}'を削除`">
-          <Trash2 :size="16" />
-        </button>
-      </li>
+      <KeywordChip
+        v-for="(color, word) in keywords"
+        :key="word"
+        :word="word"
+        :color="color"
+        @delete="deleteKeyword"
+      />
     </ul>
     <p v-else class="no-keywords">ハイライト中の単語はありません。</p>
   </div>
@@ -50,50 +50,5 @@ const deleteKeyword = (word: string) => {
   gap: 8px;
   margin: 0;
   padding: 0;
-}
-
-.keyword-item {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 4px 12px;
-  border-radius: 16px;
-  background-color: var(--color-surface);
-  border: 1px solid var(--color-border);
-  color: var(--color-text);
-  font-size: 0.9rem;
-}
-
-.keyword-color-chip {
-  display: inline-block;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-}
-
-.keyword-text {
-  font-weight: 500;
-}
-
-.delete-button {
-  background: none;
-  border-radius: 50%;
-  cursor: pointer;
-  padding: 4px;
-  margin-left: 4px;
-  color: var(--color-text);
-  display: flex;
-  align-items: center;
-}
-
-.delete-button:hover {
-  color: var(--color-secondary);
-}
-
-.no-keywords {
-  color: #888;
-  text-align: center;
-  margin: 0;
-  padding: var(--spacing-base);
 }
 </style>
