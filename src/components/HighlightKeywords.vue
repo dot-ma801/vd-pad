@@ -39,7 +39,6 @@ const deleteKeyword = (word: string) => {
   padding: var(--spacing-base);
   border-radius: 4px;
   min-height: 50px;
-  margin-top: var(--spacing-base);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 

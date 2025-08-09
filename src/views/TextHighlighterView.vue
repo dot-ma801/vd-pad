@@ -43,11 +43,6 @@ const { highlightedParts } = useTextHighlighter(contentText, highlightWordsWithC
   gap: 16px;
 }
 
-.action-area {
-  display: flex;
-  align-items: center;
-}
-
 textarea {
   flex: 1;
   background-color: var(--color-surface-alt);

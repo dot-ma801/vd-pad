@@ -36,6 +36,7 @@ const onDelete = (word: string) => {
   padding: var(--spacing-base);
   border-radius: 8px;
   border: 1px solid var(--color-border);
+  align-items: center;
 }
 
 .form-area {

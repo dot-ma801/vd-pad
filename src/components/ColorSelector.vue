@@ -77,10 +77,11 @@ const onColorChange = (event: Event) => {
 <style scoped>
 .color-selector-container {
   --marker-size: 30px;
+  --marker-gap-size: 8px;
+  --selected-marker-border-size: 3px;
 
   gap: 8px;
-  width: calc(var(--marker-size) * 3 + 16px);
-
+  width: calc(var(--marker-size) * 3 + var(--marker-gap-size) * 3 + var(--selected-marker-border-size) * 2);
   display: flex;
   flex-wrap: wrap;
 }
@@ -100,7 +101,7 @@ const onColorChange = (event: Event) => {
 }
 
 .color-marker.is-active {
-  border: 3px solid var(--color-primary);
+  border: var(--selected-marker-border-size) solid var(--color-primary);
 }
 
 .custom-color-marker {
