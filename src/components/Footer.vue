@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Github } from 'lucide-vue-next';
-import { deployDate, commitHash } from '@/config/deployInfo';
+import { deployDate, commitHash, commitShort } from '@/config/deployInfo';
 </script>
 
 <template>
@@ -8,7 +8,7 @@ import { deployDate, commitHash } from '@/config/deployInfo';
     <div class="footer-content">
       <span class="deploy-info">
         Last deployed on {{ deployDate }} for commit
-        <a :href="`https://github.com/dot-ma801/vd-pad/commit/${commitHash}`" class="commit-link">{{ commitHash }}</a>
+        <a :href="`https://github.com/dot-ma801/vd-pad/commit/${commitHash}`" class="commit-link">{{ commitShort }}</a>
       </span>
       <a href="https://github.com/dot-ma801/vd-pad" class="github-link" target="_blank" rel="noopener">
         <Github />

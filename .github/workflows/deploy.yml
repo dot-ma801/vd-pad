@@ -22,6 +22,7 @@ jobs:
         run: |
           echo "VITE_DEPLOY_DATE=$(date -u '+%Y/%m/%d at %H:%M:%S %z')" >> $GITHUB_ENV
           echo "VITE_COMMIT_HASH=${{ github.sha }}" >> $GITHUB_ENV
+          echo "VITE_COMMIT_SHORT=$(git rev-parse --short $GITHUB_SHA)" >> $GITHUB_ENV
 
       - name: Build project
         run: npm run build
