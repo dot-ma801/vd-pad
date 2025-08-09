@@ -3,6 +3,7 @@ import { computed, ref } from 'vue'
 import { defaultColorList } from '@/config/colors'
 import { Palette, Check } from 'lucide-vue-next'
 import { useContrastingColor } from '@/composables/useColorUtils'
+import { useThemeStore } from '@/stores/theme'
 
 const props = defineProps<{
   modelValue: string
@@ -11,6 +12,8 @@ const props = defineProps<{
 const emit = defineEmits<{
   (e: 'update:modelValue', color: string): void
 }>()
+
+const themeStore = useThemeStore();
 
 const colorInput = ref<HTMLInputElement | null>(null)
 
@@ -26,7 +29,7 @@ const contrastingIconColor = useContrastingColor(customColorValue)
 
 const iconColor = computed(() => {
   if (!isCustomColorActive.value) {
-    return 'currentColor'
+    return '#000'
   }
   return contrastingIconColor.value
 })
