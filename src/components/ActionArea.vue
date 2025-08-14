@@ -2,6 +2,7 @@
 import WordColorForm from '@/components/WordColorForm.vue'
 import HighlightKeywords from '@/components/HighlightKeywords.vue'
 import Accordion from '@/components/AccordionComponent.vue'
+import AccordionContents from '@/components/AccordionContents.vue'
 import type { KeywordMap, KeyWordWithColor } from '@/types/wordTypes'
 
 defineProps<{
@@ -11,6 +12,7 @@ defineProps<{
 const emit = defineEmits<{
   (e: 'add', payload: KeyWordWithColor): void
   (e: 'delete', word: string): void
+  (e: 'update:delimiters', delimiters: string[]): void
 }>()
 
 const onAdd = (payload: KeyWordWithColor) => {
@@ -19,6 +21,10 @@ const onAdd = (payload: KeyWordWithColor) => {
 
 const onDelete = (word: string) => {
   emit('delete', word)
+}
+
+const onUpdateDelimiters = (delimiters: string[]) => {
+  emit('update:delimiters', delimiters)
 }
 </script>
 
@@ -29,8 +35,7 @@ const onDelete = (word: string) => {
       <HighlightKeywords class="words-area" :keywords="keywords" @delete="onDelete" />
     </div>
     <Accordion class="accordion">
-      へろー
-
+      <AccordionContents @update:delimiters="onUpdateDelimiters" />
     </Accordion>
   </div>
 </template>
