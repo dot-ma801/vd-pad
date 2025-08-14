@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import WordColorForm from '@/components/WordColorForm.vue'
 import HighlightKeywords from '@/components/HighlightKeywords.vue'
+import Accordion from '@/components/AccordionComponent.vue'
 import type { KeywordMap, KeyWordWithColor } from '@/types/wordTypes'
 
 defineProps<{
@@ -22,20 +23,29 @@ const onDelete = (word: string) => {
 </script>
 
 <template>
-  <div class="action-area">
-    <WordColorForm class="form-area" @add="onAdd" />
-    <HighlightKeywords class="words-area" :keywords="keywords" @delete="onDelete" />
+  <div class="card-container">
+    <div class="action-area">
+      <WordColorForm class="form-area" @add="onAdd" />
+      <HighlightKeywords class="words-area" :keywords="keywords" @delete="onDelete" />
+    </div>
+    <Accordion class="accordion">
+      へろー
+
+    </Accordion>
   </div>
 </template>
 
 <style scoped>
-.action-area {
-  display: flex;
-  gap: var(--spacing-base);
+.card-container {
   background-color: var(--color-surface);
   padding: var(--spacing-base);
   border-radius: 8px;
   border: 1px solid var(--color-border);
+}
+
+.action-area {
+  display: flex;
+  gap: var(--spacing-base);
   align-items: center;
 }
 
@@ -45,6 +55,10 @@ const onDelete = (word: string) => {
 
 .words-area {
   flex: 3;
+}
+
+.accordion {
+  margin-top: 16px;
 }
 
 @media (max-width: 768px) {
