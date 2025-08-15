@@ -7,6 +7,7 @@ import type { KeywordMap, KeyWordWithColor } from '@/types/wordTypes'
 
 const contentText = ref<string>('')
 const highlightWordsWithColor = ref<KeywordMap>({})
+const delimiters = ref<string[]>([])
 
 const addWordColor = (payload: KeyWordWithColor) => {
   highlightWordsWithColor.value[payload.word] = payload.color
@@ -16,12 +17,25 @@ const deleteWordColor = (word: string) => {
   delete highlightWordsWithColor.value[word]
 }
 
-const { highlightedParts } = useTextHighlighter(contentText, highlightWordsWithColor)
+const updateDelimiters = (newDelimiters: string[]) => {
+  delimiters.value = newDelimiters
+}
+
+const { highlightedParts } = useTextHighlighter(
+  contentText,
+  highlightWordsWithColor,
+  delimiters,
+)
 </script>
 
 <template>
   <div class="container">
-    <ActionArea :keywords="highlightWordsWithColor" @add="addWordColor" @delete="deleteWordColor" />
+    <ActionArea
+      :keywords="highlightWordsWithColor"
+      @add="addWordColor"
+      @delete="deleteWordColor"
+      @update:delimiters="updateDelimiters"
+    />
     <div class="text-container">
       <textarea v-model="contentText" rows="6" placeholder="原文を入力…"></textarea>
       <div class="highlight-text-area">
