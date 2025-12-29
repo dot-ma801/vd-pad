@@ -12,3 +12,4 @@ export const initialText =
 便利に使ってもらえたら嬉しいです！
 `;
 
+export const initialCharacter = {"モブA":"#A076F9","モブB":"#F5A623","モブC":"#F778A1"};

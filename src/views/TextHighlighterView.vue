@@ -4,10 +4,10 @@ import ActionArea from '@/components/ActionArea.vue'
 import { useTextHighlighter } from '@/composables/useTextHighlighter'
 import { ref } from 'vue'
 import type { KeywordMap, KeyWordWithColor } from '@/types/wordTypes'
-import { initialText } from '@/config/initialSetting'
+import { initialText, initialCharacter } from '@/config/initialSetting'
 
 const contentText = ref<string>(initialText)
-const highlightWordsWithColor = ref<KeywordMap>({})
+const highlightWordsWithColor = ref<KeywordMap>(initialCharacter)
 const delimiters = ref<string[]>([])
 
 const addWordColor = (payload: KeyWordWithColor) => {
