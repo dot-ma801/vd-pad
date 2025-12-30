@@ -73,7 +73,7 @@ onUnmounted(() => {
 
 .tooltip-trigger {
   cursor: pointer;
-  color: var(--color-text-alt);
+  color: var(--color-text-primary-alt);
 }
 
 .tooltip-content {
@@ -82,7 +82,7 @@ onUnmounted(() => {
   left: 50%;
   transform: translateX(-50%);
   background-color: var(--color-surface-alt);
-  color: var(--color-text);
+  color: var(--color-text-primary);
   border: 1px solid var(--color-border);
   border-radius: 6px;
   padding: 10px 14px;
@@ -99,7 +99,7 @@ label {
 input {
   width: 180px;
   background-color: var(--color-surface-alt);
-  color: var(--color-text);
+  color: var(--color-text-primary);
   padding: 4px 8px;
   border: 1px solid var(--color-border);
   border-radius: 4px;

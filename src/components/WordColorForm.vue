@@ -43,7 +43,7 @@ const submit = () => {
 input[type='text'] {
   padding: 0.5rem;
   background-color: var(--color-surface);
-  color: var(--color-text);
+  color: var(--color-text-primary);
   border: 1px solid var(--color-border);
   border-radius: 4px;
   font-size: 1rem;

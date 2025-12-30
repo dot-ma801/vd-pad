@@ -61,7 +61,7 @@ const { highlightedParts } = useTextHighlighter(
 textarea {
   flex: 1;
   background-color: var(--color-surface-alt);
-  color: var(--color-text);
+  color: var(--color-text-primary);
   padding: var(--spacing-base);
   border: 1px solid var(--color-border);
   border-radius: 4px;
