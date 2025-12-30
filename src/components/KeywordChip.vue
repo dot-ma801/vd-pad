@@ -54,14 +54,14 @@ const deleteKeyword = (word: string) => {
   cursor: pointer;
   padding: 4px;
   margin-left: 4px;
-  color: var(--color-text-primary);
+  color: var(--color-danger-text);
   display: flex;
   align-items: center;
   border: none;
 }
 
 .delete-button:hover {
-  color: var(--color-text-secondary);
+  color: var(--color-danger-hover);
 }
 
 

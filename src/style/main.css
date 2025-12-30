@@ -41,6 +41,12 @@
 
   /* spacing */
   --spacing-base: 1rem;
+
+  /* destructive / danger */
+  --color-danger: #d32f2f;
+  --color-danger-hover: #b71c1c;
+  --color-danger-text: #ffffff;
+  --color-danger-border: transparent;
 }
 
 /* =========================
@@ -58,6 +64,9 @@
 
   --color-input-bg: #2a2a2a;
   --color-preview-bg: #1f1f1f;
+
+  --color-danger: #ef5350;
+  --color-danger-hover: #e53935;
 }
 
 /* =========================
