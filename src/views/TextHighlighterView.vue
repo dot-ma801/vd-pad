@@ -64,7 +64,6 @@ textarea {
 }
 
 .highlight-text-area {
-  border: 1px solid var(--color-border);
   background-color: var(--color-surface);
   padding: var(--spacing-base);
   flex: 5;
