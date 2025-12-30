@@ -42,9 +42,9 @@ const submit = () => {
 
 input[type='text'] {
   padding: 0.5rem;
-  background-color: var(--color-surface);
+  background-color: var(--color-input-bg);
   color: var(--color-text-primary);
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--color-input-border);
   border-radius: 4px;
   font-size: 1rem;
 }

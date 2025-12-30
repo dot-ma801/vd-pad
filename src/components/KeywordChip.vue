@@ -61,14 +61,8 @@ const deleteKeyword = (word: string) => {
 }
 
 .delete-button:hover {
-  color: var(--color-secondary);
+  color: var(--color-text-secondary);
 }
 
-.no-keywords {
-  color: #888;
-  text-align: center;
-  margin: 0;
-  padding: var(--spacing-base);
-}
 
 </style>

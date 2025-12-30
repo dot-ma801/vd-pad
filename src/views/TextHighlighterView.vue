@@ -22,11 +22,7 @@ const updateDelimiters = (newDelimiters: string[]) => {
   delimiters.value = newDelimiters
 }
 
-const { highlightedParts } = useTextHighlighter(
-  contentText,
-  highlightWordsWithColor,
-  delimiters,
-)
+const { highlightedParts } = useTextHighlighter(contentText, highlightWordsWithColor, delimiters)
 </script>
 
 <template>
@@ -60,7 +56,7 @@ const { highlightedParts } = useTextHighlighter(
 
 textarea {
   flex: 1;
-  background-color: var(--color-surface-alt);
+  background-color: var(--color-input-bg);
   color: var(--color-text-primary);
   padding: var(--spacing-base);
   border: 1px solid var(--color-border);
@@ -73,6 +69,7 @@ textarea {
   padding: var(--spacing-base);
   flex: 5;
   border-radius: 4px;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.03);
 }
 
 @media (max-width: 768px) {
