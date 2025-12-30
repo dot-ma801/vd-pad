@@ -6,6 +6,7 @@ import { computed, ref } from 'vue'
 import type { KeywordMap, KeyWordWithColor } from '@/types/wordTypes'
 import { initialText, initialCharacter } from '@/config/initialSetting'
 import { X } from 'lucide-vue-next'
+import PrimaryButton from '@/components/ui/PrimaryButton.vue'
 
 const contentText = ref<string>(initialText)
 const highlightWordsWithColor = ref<KeywordMap>(initialCharacter)
@@ -27,6 +28,10 @@ const onClickClear = () => {
   contentText.value = ''
 }
 
+const clearBtnDisable = computed(() => {
+  return contentText.value === "";
+})
+
 const { highlightedParts } = useTextHighlighter(contentText, highlightWordsWithColor, delimiters)
 </script>
 
@@ -42,10 +47,10 @@ const { highlightedParts } = useTextHighlighter(contentText, highlightWordsWithC
       <div class="input-container">
         <textarea v-model="contentText" rows="6" placeholder="原文を入力…"></textarea>
         <!-- TODO: src\components\KeywordChip.vue にも button あるから、共通化しなきゃ -->
-        <button @click="onClickClear" class="clear-btn">
+        <PrimaryButton @click="onClickClear" class="clear-btn" :disabled="clearBtnDisable">
           <X :size="16" />
           <p>テキストをクリア</p>
-        </button>
+        </PrimaryButton>
       </div>
       <div class="highlight-text-area">
         <HighlightedText :parts="highlightedParts" />
@@ -81,17 +86,6 @@ textarea {
   flex: 5;
   border-radius: 4px;
   box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.03);
-}
-
-button {
-  background-color: var(--color-primary);
-  color: #fff;
-  border: none;
-  padding: 0.5rem;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 1rem;
-  min-width: 48px;
 }
 
 .input-container {
