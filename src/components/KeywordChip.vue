@@ -54,7 +54,7 @@ const deleteKeyword = (word: string) => {
   cursor: pointer;
   padding: 4px;
   margin-left: 4px;
-  color: var(--color-danger-text);
+  color: var(--color-text-primary);
   display: flex;
   align-items: center;
   border: none;
