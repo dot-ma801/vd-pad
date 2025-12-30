@@ -36,7 +36,7 @@ const click = () => {
 .line {
   flex: 1;
   height: 1px;
-  background-color: var(--color-text);
+  background-color: var(--color-text-primary);
   opacity: 0.3;
   margin-left: 8px;
 }

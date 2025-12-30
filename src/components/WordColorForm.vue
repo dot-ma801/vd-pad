@@ -3,6 +3,7 @@ import { ref } from 'vue'
 import type { KeyWordWithColor } from '@/types/wordTypes'
 import ColorSelector from '@/components/ColorSelector.vue'
 import { defaultColorList } from '@/config/colors'
+import PrimaryButton from '@/components/ui/PrimaryButton.vue'
 
 const newName = ref('')
 const newColor = ref(defaultColorList[0])
@@ -26,7 +27,7 @@ const submit = () => {
       <input v-model="newName" type="text" />
       <ColorSelector v-model="newColor" />
     </div>
-    <button>追加</button>
+    <PrimaryButton>追加</PrimaryButton>
   </form>
 </template>
 
@@ -42,31 +43,11 @@ const submit = () => {
 
 input[type='text'] {
   padding: 0.5rem;
-  background-color: var(--color-surface);
-  color: var(--color-text);
-  border: 1px solid var(--color-border);
+  background-color: var(--color-input-bg);
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-input-border);
   border-radius: 4px;
   font-size: 1rem;
-}
-
-button {
-  background-color: var(--color-primary);
-  color: #fff;
-  border: none;
-  padding: 0.5rem;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 1rem;
-  min-width: 48px;
-}
-
-button:hover {
-  background-color: var(--color-primary-hover);
-}
-
-button:disabled {
-  background-color: var(--color-disabled-bg);
-  cursor: not-allowed;
 }
 
 @media (max-width: 768px) {

@@ -17,7 +17,7 @@ import AppFooter from '@/components/Footer.vue'
 .app-container {
   min-height: 100vh;
   background-color: var(--color-bg);
-  color: var(--color-text);
+  color: var(--color-text-primary);
   display: flex;
   flex-direction: column;
 }

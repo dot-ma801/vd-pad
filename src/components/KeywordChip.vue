@@ -34,7 +34,7 @@ const deleteKeyword = (word: string) => {
   border-radius: 16px;
   background-color: var(--color-surface);
   border: 1px solid var(--color-border);
-  color: var(--color-text);
+  color: var(--color-text-primary);
   font-size: 0.9rem;
 }
 
@@ -54,21 +54,15 @@ const deleteKeyword = (word: string) => {
   cursor: pointer;
   padding: 4px;
   margin-left: 4px;
-  color: var(--color-text);
+  color: var(--color-danger-text);
   display: flex;
   align-items: center;
   border: none;
 }
 
 .delete-button:hover {
-  color: var(--color-secondary);
+  color: var(--color-danger-hover);
 }
 
-.no-keywords {
-  color: #888;
-  text-align: center;
-  margin: 0;
-  padding: var(--spacing-base);
-}
 
 </style>

@@ -50,4 +50,10 @@ const deleteKeyword = (word: string) => {
   margin: 0;
   padding: 0;
 }
+
+.no-keywords {
+  color: var(--color-text-secondary);
+  text-align: center;
+  padding: var(--spacing-base);
+}
 </style>
