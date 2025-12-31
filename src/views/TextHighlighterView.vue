@@ -25,11 +25,13 @@ const updateDelimiters = (newDelimiters: string[]) => {
 }
 
 const onClickClear = () => {
-  contentText.value = ''
+  if (window.confirm('テキストをすべてクリアしますか？')) {
+    contentText.value = ''
+  }
 }
 
 const clearBtnDisable = computed(() => {
-  return contentText.value === "";
+  return contentText.value === ''
 })
 
 const { highlightedParts } = useTextHighlighter(contentText, highlightWordsWithColor, delimiters)
