@@ -15,7 +15,7 @@ export const useTextHighlighter = (
   textRef: Ref<string>,
   tokenColorsRef: Ref<KeywordMap>,
   delimitersRef: Ref<string[]>
-): { highlightedParts: ComputedRef<HighlightedPart[]> } => {
+): { highlightedParts: ComputedRef<HighlightedPart[]>; highlightedTokens: ComputedRef<HighlightedPart[]> } => {
   const highlightedParts = computed(() => {
     const text = textRef.value                     // 入力テキスト全体
     const tokenColors = tokenColorsRef.value        // キーワード→カラーのマップ
@@ -125,5 +125,16 @@ export const useTextHighlighter = (
     return allParts
   })
 
-  return { highlightedParts }
+  // 強調されたトークンのみ（色付き）の配列
+  const highlightedTokens: ComputedRef<HighlightedPart[]> = computed(() => {
+    return highlightedParts.value
+      .filter(item => item.color !== undefined)
+      .map(item => ({
+        text: item.text,
+        color: item.color as string,
+        count: item.count
+      }))
+  })
+
+  return { highlightedParts, highlightedTokens }
 }
