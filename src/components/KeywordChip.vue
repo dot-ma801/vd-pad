@@ -4,6 +4,7 @@ import { Trash2 } from 'lucide-vue-next'
 defineProps<{
   word: string
   color: string
+  count: number
 }>()
 
 const emit = defineEmits<{
@@ -19,6 +20,7 @@ const deleteKeyword = (word: string) => {
   <li class="keyword-item">
     <span class="keyword-color-chip" :style="{ backgroundColor: color }"></span>
     <span class="keyword-text">{{ word }}</span>
+    <span class="keyword-count">{{ count }}</span>
     <button class="delete-button" @click="deleteKeyword(word)" :title="`'${word}'を削除`">
       <Trash2 :size="16" />
     </button>
@@ -49,6 +51,21 @@ const deleteKeyword = (word: string) => {
   font-weight: 500;
 }
 
+.keyword-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  padding: 0 6px;
+  height: 24px;
+  border-radius: 12px;
+  background-color: var(--color-surface-variant);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-primary);
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
 .delete-button {
   background: none;
   cursor: pointer;
@@ -63,6 +80,4 @@ const deleteKeyword = (word: string) => {
 .delete-button:hover {
   color: var(--color-danger-hover);
 }
-
-
 </style>
