@@ -6,6 +6,7 @@ export type HighlightedPart = {
   text: string
   // 色がつかない場所もあるため
   color?: string
+  count: number
 }
 
 /**
