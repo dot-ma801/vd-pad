@@ -34,13 +34,13 @@ const clearBtnDisable = computed(() => {
   return contentText.value === ''
 })
 
-const { highlightedParts } = useTextHighlighter(contentText, highlightWordsWithColor, delimiters)
+const { highlightedParts, highlightedTokens } = useTextHighlighter(contentText, highlightWordsWithColor, delimiters)
 </script>
 
 <template>
   <div class="container">
     <ActionArea
-      :keywords="highlightWordsWithColor"
+      :keywords="highlightedTokens"
       @add="addWordColor"
       @delete="deleteWordColor"
       @update:delimiters="updateDelimiters"

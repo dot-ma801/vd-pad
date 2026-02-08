@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import KeywordChip from './KeywordChip.vue'
+import type { HighlightedPart } from '@/types/wordTypes';
 
 const props = defineProps<{
-  keywords: Record<string, string>
+  keywords: HighlightedPart[]
 }>()
 
 const emit = defineEmits<{
@@ -21,10 +22,10 @@ const deleteKeyword = (word: string) => {
   <div class="keywords-container">
     <ul v-if="hasKeywords" class="keywords-list">
       <KeywordChip
-        v-for="(color, word) in keywords"
-        :key="word"
-        :word="word"
-        :color="color"
+        v-for="(item) in keywords"
+        :key="item.text"
+        :word="item.text"
+        :color="item.color ?? ''"
         @delete="deleteKeyword"
       />
     </ul>

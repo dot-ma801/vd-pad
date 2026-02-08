@@ -3,10 +3,10 @@ import WordColorForm from '@/components/WordColorForm.vue'
 import HighlightKeywords from '@/components/HighlightKeywords.vue'
 import Accordion from '@/components/AccordionComponent.vue'
 import AccordionContents from '@/components/AccordionContents.vue'
-import type { KeywordMap, KeyWordWithColor } from '@/types/wordTypes'
+import type { HighlightedPart, KeyWordWithColor } from '@/types/wordTypes'
 
 defineProps<{
-  keywords: KeywordMap
+  keywords: HighlightedPart[]
 }>()
 
 const emit = defineEmits<{
