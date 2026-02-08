@@ -7,6 +7,7 @@ import type { KeywordMap, KeyWordWithColor } from '@/types/wordTypes'
 import { initialText, initialCharacter } from '@/config/initialSetting'
 import { X } from 'lucide-vue-next'
 import PrimaryButton from '@/components/ui/PrimaryButton.vue'
+import ScrollProgressBtn from '@/components/ui/ScrollProgressBtn.vue'
 
 const contentText = ref<string>(initialText)
 const highlightWordsWithColor = ref<KeywordMap>(initialCharacter)
@@ -59,6 +60,7 @@ const { highlightedParts, highlightedTokens } = useTextHighlighter(contentText, 
       </div>
     </div>
   </div>
+  <ScrollProgressBtn />
 </template>
 
 <style scoped>
