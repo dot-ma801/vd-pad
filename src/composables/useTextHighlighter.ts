@@ -125,15 +125,19 @@ export const useTextHighlighter = (
     return allParts
   })
 
-  // 強調されたトークンのみ（色付き）の配列
+  // 強調されたトークンのみ（色付き）の配列（重複排除）
   const highlightedTokens: ComputedRef<HighlightedPart[]> = computed(() => {
-    return highlightedParts.value
-      .filter(item => item.color !== undefined)
-      .map(item => ({
-        text: item.text,
-        color: item.color as string,
-        count: item.count
-      }))
+    const tokensMap = new Map<string, HighlightedPart>()
+    highlightedParts.value.forEach(item => {
+      if (item.color !== undefined && !tokensMap.has(item.text)) {
+        tokensMap.set(item.text, {
+          text: item.text,
+          color: item.color as string,
+          count: item.count
+        })
+      }
+    })
+    return Array.from(tokensMap.values())
   })
 
   return { highlightedParts, highlightedTokens }

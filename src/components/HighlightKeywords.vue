@@ -26,6 +26,7 @@ const deleteKeyword = (word: string) => {
         :key="item.text"
         :word="item.text"
         :color="item.color ?? ''"
+        :count="item.count"
         @delete="deleteKeyword"
       />
     </ul>
